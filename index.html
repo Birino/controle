@@ -1,0 +1,212 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controle de Alunos</title>
+    <link rel="stylesheet" href="src/bootstrap-4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- <button id="addaluno" onclick="mostrarForm()">
+        Adicionar Novo Aluno
+    </button>
+    <button id="addcurso" onclick="mostrarCurso()">
+        Adicionar Novo Curso
+    </button>
+    <button id="addprofessor" onclick="mostrarProfessor()">
+        Adicionar Novo Professor
+    </button> -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="img/franquia_senai.png" alt="logosenai" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="mostrarForm()">Adicionar Alunos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="mostrarProfessor()" >Adicionar Professor</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="mostrarDisciplina()" >Adicionar Disciplina</a>
+                </li>
+               
+              </ul>
+            </div>
+          </nav>
+    </div>
+    <!-- div com conteudo de aluno -->
+    <div class="container" id="conteudo_aluno">
+   
+
+        <div id="add">
+                <form action="" method="post" id="formulario">
+                    <input type="hidden" name="mat" id="mat">
+                        <label for="nome">Nome:</label><br>
+                        <input type="text" name="nome" id="nome" value=""><br>
+                        <label for="datanascimento">Data de Nascimento:</label><br>
+                        <input type="text" name="datanascimento" id="datanascimento" value=""><br>
+                        <label for="cpf">CPF:</label><br>
+                        <input type="text" name="cpf" id="cpf" value=""><br>
+                        <label for="endereco">Endereço:</label><br>
+                        <input type="text" name="endereco" id="endereco" value=""><br>
+                        <label for="telefone">Telefone:</label><br>
+                        <input type="text" name="telefone" id="telefone" value=""><br>
+                        <label for="sexo">Sexo:</label><br>
+                        <input type="radio" name="sexo" id="masc" value="1" checked>Homem <br>
+                        <input type="radio" name="sexo" id="fem" value="2">Mulher <br>
+                        <button  type="submit" id="salvar" value="Salvar" name="salvar" class='salvar'>
+                            Salvar
+                        </button>
+
+                    </form>
+        </div>
+            
+        <div id="tblaluno">
+            <table id="lista" class="table">
+                <thead>
+            
+                    <tr>
+                     <th>Nome:</th>
+                     <th>Data Nascimento:</th>
+                     <th>CPF</th>
+                     <th>Telefone</th>
+                     <th>Endereco</th>
+                     <th>Sexo</th>
+                     <th>Operação</th>
+                   </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div> 
+    <!-- div com o conteudo de cursos -->
+    <div id="conteudo_cursos" class="container">
+        <div id="formcursos">
+            <form action="" method="post" id="frmcursos">
+                <input type="hidden" name="codcursos" id="codcursos">
+                    <label for="cod_cursos">Cod:</label><br>
+                    <input type="text" name="cod_cursos" id="cod_cursos" value=""><br>
+                    <label for="nome_cursos">Curso:</label><br>
+                    <input type="text" name="nome_cursos" id="nome_cursos" value=""><br>
+                    <label for="data_inicio">Data de Início:</label><br>
+                    <input type="text" name="data_inicio" id="data_inicio" value=""><br>
+                    <label for="carga_horaria">Carga Horária:</label><br>
+                    <input type="text" name="carga_horaria" id="carga_horaria" value=""><br>
+                    <label for="turno">Turno:</label><br>
+                    <input type="radio" name="turno" id="matutino" value="1" checked>Matutino <br>
+                    <input type="radio" name="turno" id="vespertino" value="2">Vespertino <br>
+                    <input type="radio" name="turno" id="noturno" value="3">Noturno <br>
+                    <textarea name="descricao_cursos" id="descricao_cursos" cols="30" rows="5"></textarea><br>
+                    <button  type="submit" id="salvarcursos" value="salvarcursos" name="salvarcursos">
+                        Salvar
+                    </button>
+            </form>
+        </div>
+                
+        <div id="tblcursos">
+            <table id="lista" class="table">
+                <thead>
+                    <tr>
+                        <th>Cod:</th>
+                        <th>Curso:</th>
+                        <th>Data de Inínio:</th>
+                        <th>Carga Horária</th>
+                        <th>Descrição:</th>
+                        <th>Turno:</th>
+                        <th>Disciplinas:</th>
+                        <th>Operação:</th>
+                    </tr>
+                </thead>
+                <tbody id="cursos"></tbody>
+            </table>
+        </div>
+    </div>
+    <!-- div com o conteudo de professor -->
+    <div id="conteudo_professor" class="container">
+        <div id="formprofessor">
+            <form action="" method="post" id="frmProfessor">
+                <input type="hidden" name="matProfessor" id="matProfessor">
+                    <label for="nomeProfessor">Nome:</label><br>
+                    <input type="text" name="nomeProfessor" id="nomeProfessor" value=""><br>
+                    <label for="datanascimentoProfessor">Data de Nascimento:</label><br>
+                    <input type="text" name="datanascimentoProfessor" id="datanascimentoProfessor" value=""><br>
+                    <label for="cpfProfessor">CPF:</label><br>
+                    <input type="text" name="cpfProfessor" id="cpfProfessor" value=""><br>
+                    <label for="enderecoProfessor">Endereço:</label><br>
+                    <input type="text" name="enderecoProfessor" id="enderecoProfessor" value=""><br>
+                    <label for="telefoneProfessor">Telefone:</label><br>
+                    <input type="text" name="telefoneProfessor" id="telefoneProfessor" value=""><br>
+                    <label for="sexoProfessor">Sexo:</label><br>
+                    <input type="radio" name="sexoProfessor" id="mascProfessor" value="1" checked>Homem <br>
+                    <input type="radio" name="sexoProfessor" id="femProfessor" value="2">Mulher <br>
+                    <button  type="submit" id="salvarProfessor" value="Salvar" name="salvarProfessor">
+                        Salvar
+                    </button>
+                </input>
+            </form>
+        </div>
+        <div id="tblprofessor">
+                <table id="listaProfessor" class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome:</th>
+                            <th>Data de Nascimento:</th>
+                            <th>CPF</th>
+                            <th>Endereço:</th>
+                            <th>Telefone:</th>
+                            <th>Sexo:</th>
+                            <th>Operação:</th>
+                        </tr>
+                    </thead>
+                    <tbody id="professor"></tbody>
+                </table>
+        </div>
+
+    </div>
+    <!-- div com o conteudo de disciplinas -->
+    <div id="conteudo_disciplinas" class="container">
+        <div id="formdisciplinas">
+            <form action="" method="post" id="frmdisciplinas">
+                <input type="hidden" name="matdisciplinas" id="matdisciplinas">
+                    <label for="nomeDisciplinas">Nome:</label><br>
+                    <input type="text" name="nomedisciplinas" id="nomeDisciplinas" value=""><br>
+                    <label for="carga_horariaDisciplinas">Carga Horária:</label><br>
+                    <input type="text" name="carga_horariadisciplinas" id="carga_horariadisciplinas" value=""><br>
+                    <label for="carga_horaria">Conteúdo:</label><br>
+                    <input type="text" name="conteudo" id="conteudo" value=""><br>
+                    <button  type="submit" id="salvarDisciplinas" value="Salvar" name="salvarDisciplinas">
+                        Salvar
+                    </button>
+            </form>
+        </div>
+                
+        <div id="tbldisciplinas">
+            <table id="listaDisciplinas" class="table">
+                <thead>
+                    <tr>
+                        <th>Nome:</th>
+                        <th>Carga Horária</th>
+                        <th>Conteúdo:</th>
+                        <th>Operação:</th>
+                    </tr>
+                </thead>
+                <tbody id="disciplinas"></tbody>
+            </table>
+        </div>
+    </div>
+</body> 
+             
+<script src="js/jquery-3.3.1.js"></script>
+<script src="src/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>   
+</html>          
